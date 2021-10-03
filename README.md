@@ -74,7 +74,7 @@ The specs for lab:
 
 * [x] Should receive `hours` on props that is an array of cookie stand hours of operation
 * [x] Should receive `reports` on props that is an array of all cookie stand objects
-  * [ ] If `reports` is empty, render `<h2>No Cookie Stands Available</h2>`
+  * [x] If `reports` is empty, render `<h2>No Cookie Stands Available</h2>`
   * [x] If `reports` is not empty, render a `table` with `thead`, `tbody`, and `tfoot` components
 * [x] Components should render to match spec
 * [ ] Component is responsible for tallying totals for each cookie stand as well as all cookie stands per hourly slot
