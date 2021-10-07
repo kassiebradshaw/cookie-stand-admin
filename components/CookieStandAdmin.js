@@ -5,7 +5,6 @@ export default function CookieStandAdmin() {
   
     return (
       <div>
-        <main>
           <CreateForm onCreate={createStoreHandler}/>
             
           { reports[0] ? <ReportTable 
@@ -13,11 +12,6 @@ export default function CookieStandAdmin() {
             reports={reports} /> : <h2 className="m-5 text-center">No Cookie Stands Available</h2>
           }
           
-        </main>
-  
-        <Footer reports={reports.length}/>
-      
-  
         {/* <main>           
             <form onSubmit={ createStoreHandler } className="flex p-6 mx-20 my-5 bg-green-300 rounded-md">
               <div className="flex items-center mx-auto text-center">
