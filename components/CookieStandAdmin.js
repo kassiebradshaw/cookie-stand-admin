@@ -1,16 +1,21 @@
-import ReportTable from '.ReportTable'
-import CreateForm from '.CreateForm'
+import ReportTable from './ReportTable'
+import CreateForm from './CreateForm'
+import { hours } from '../data'
 
-export default function CookieStandAdmin() {
+export default function CookieStandAdmin(props) {
   
     return (
       <div>
-          <CreateForm onCreate={createStoreHandler}/>
+          {/* <CreateForm onCreate={createStoreHandler}/> */}
+          <CreateForm reports={props.reports}
+          setAllStores={props.setAllStores}/>
             
-          { reports[0] ? <ReportTable 
+          {/* { reports[0] ? <ReportTable 
             hours={hours}
             reports={reports} /> : <h2 className="m-5 text-center">No Cookie Stands Available</h2>
-          }
+          } */}
+
+          <ReportTable reports={props.reports}/>
           
         {/* <main>           
             <form onSubmit={ createStoreHandler } className="flex p-6 mx-20 my-5 bg-green-300 rounded-md">
