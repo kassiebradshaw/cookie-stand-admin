@@ -11,7 +11,7 @@ export default function Home() {
 
   const { user, login } = useAuth();
 
-  const [reports, setAllStores] = useState([])
+  // const [reports, setAllStores] = useState([])
 
   // function createStoreHandler(event) {
   //   event.preventDefault();
@@ -34,28 +34,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header user={ {user} }/>
+      {/* <Header user={ {user} }/> */}
       
       
       <main>
-      <button onClick={()=> login(process.env.NEXT_PUBLIC_USERNAME, process.env.NEXT_PUBLIC_PASSWORD)} className="p-2 text-white bg-gray-500 rounded-md">LOGIN</button>
-        {user 
-        ? <div>
-            <h2>Welcome {user.username}</h2>
-            <CookieStandAdmin /> 
-        </div>
-        // : <Login />
-        : <h2>Need to log in</h2>
+        <button onClick={()=> login(process.env.NEXT_PUBLIC_USERNAME, process.env.NEXT_PUBLIC_PASSWORD)} className="p-2 text-white bg-gray-500 rounded-md">LOGIN</button>
+          {user 
+          ? ( <div>
+              <h2>Welcome {user.username}</h2>
+              {console.log("Logged in")}
+              {/* <CookieStandAdmin />  */}
+            </div>
+          // : <Login />
+          ) : (<div>
+                <h2>You need to log in</h2>
+                {console.log("Not logged in")}
+              </div>)
           }
-      
-        {/* <CookieStandAdmin 
-          reports={reports}
-          setAllStores={setAllStores}
-        /> */}
       
       </main>
 
-      <Footer reports={reports.length}/>
+      {/* <Footer reports={reports.length}/> */}
 
     </div>
   )
