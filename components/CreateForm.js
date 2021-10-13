@@ -1,6 +1,20 @@
 export default function CreateForm(props) {
+  
+  function createStoreHandler(event) {
+    event.preventDefault();
+
+    const storeData = {
+      location: event.target.location.value,
+      minCustomers: event.target.minCustomers.value,
+      maxCustomers: event.target.maxCustomers.value,
+      avgCookies: event.target.avgCookies.value,
+      hourly_sales: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    }
+
+    props.setAllStores([...props.reports, storeData]);
+  }
     return (
-        <form onSubmit={ props.onCreate } className="items-center w-3/4 p-6 mx-auto my-5 bg-green-300 rounded-md ">
+        <form onSubmit={createStoreHandler} className="items-center w-3/4 p-6 mx-auto my-5 bg-green-300 rounded-md ">
           <div className="items-center text-center ">
             <label className="text-xl text-center">Create Cookie Stand</label>            
           </div>
