@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 import jwt from 'jsonwebtoken';
-import axios from 'axios';
+import axios from 'axios'
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 const tokenUrl = baseUrl + '/api/token/';
 
@@ -22,6 +22,7 @@ export function AuthProvider(props) {
     });
 
     async function login(username, password) {
+
         const response = await axios.post(tokenUrl, { username, password });
 
         const decodedAccess = jwt.decode(response.data.access);

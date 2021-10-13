@@ -98,3 +98,11 @@ The specs for lab:
   * Pro tip: Heroicons
 * [ ] Really stretch out and make delete icons functional
 * [ ] Persist Cookie Stand data
+
+---
+
+## Branch4 Notes
+
+* Collaboration with Davee Sok, Prabin Singh, Wondwosen Tsigle, Daniel Dills, Marie Marcos, Garfield Grant
+
+* Notes

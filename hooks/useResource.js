@@ -5,6 +5,7 @@ export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
 import { useAuth } from '../contexts/auth'
 
 export default function useResource() {
+
     const { tokens, logout } = useAuth()
 
     const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
@@ -19,6 +20,7 @@ export default function useResource() {
             const response = await axios.get(url, config());
 
             return response.data;
+
         } catch (error) {
             handleError(error);
         }
@@ -39,17 +41,19 @@ export default function useResource() {
         try {
             const url = apiUrl + id;
             await axios.delete(url, config());
-            mutate();
+            mutate(); // mutate causes complete collection to be refetched
         } catch (error) {
-            handleError(error)
+            handleError(error);
         }
     }
 
     async function updateResource(resource) {
-        //Stretch
+        // STRETCH
         // Add ability for user to update an existing resource
     }
 
+
+    // helper function to handle getting Authorization headers EXACTLY right
     function config() {
 
         return {
@@ -63,7 +67,7 @@ export default function useResource() {
         console.error(error);
         // currently just log out on error
         // but a common error will be short lived token expiring
-        // STRETCH : refresh the access token whe it has expired
+        // STRETCH: refresh the access token when it has expired
         logout();
     }
 
@@ -77,6 +81,7 @@ export default function useResource() {
     }
 }
 
-//STRETCH:
-// This approach works, but it's not very snappy for the user
-// Check the SWR docs to see if you can "optimistically" render updated state while the API response is pending
+/* STRETCH
+This approach works, but it's not very snappy for the user.
+Check the SWR docs to see if you can "optomistically" render updated state while the API response is pending.
+*/
